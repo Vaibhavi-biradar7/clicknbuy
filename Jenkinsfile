@@ -39,20 +39,20 @@ pipeline {
             }
         }
 
-        stage('Docker Compose Up') {
+        stage('Docker-Compose Up') {
             steps {
                 sh '''
                     echo "Starting services using Docker Compose..."
-                    docker compose up -d --build
+                    docker-compose up -d --build
                 '''
             }
         }
 
-        stage('Docker Compose Down') {
+        stage('Docker-Compose Down') {
             steps {
                 sh '''
                     echo "Stopping services using Docker Compose..."
-                    docker compose down
+                    docker-compose down
                 '''
             }
         }
@@ -67,7 +67,7 @@ pipeline {
         }
         always {
             echo "🧹 Cleaning workspace..."
-            cleanWs()
+            cleans()
         }
     }
 }
